@@ -133,6 +133,7 @@ newGame.addEventListener("click", () => {
 });
 
 function win() {
+    rules();
   resultGlobalP1 = 0;
   resultGlobalP2 = 0;
   resultP1 = 0;
@@ -145,3 +146,8 @@ function win() {
   player1.style.border = "red 5px solid"
   player2.style.border = "none"
 }
+ // *********************RESET BUTTON*****************
+ function rules() {
+ window.alert("Règles du jeu : chaque joueur lance le dé. Le score de chaque tour est cumulé jusqu'à ce que le joueur clique sur retenir le score ou fasse 1, ce qui met son tour à zéro et la main passe à l'autre joueur. Le premier à 100 remporte la partie. Bonne chance !");
+}
+rules();
