@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jeu de dés</title>
+    <meta
+      name="Description"
+      content="Un jeu de dés, le premier joueur à 100 point gagne la partie !"
+    />
+    <meta name="Keywords" content="Jeu, dés, 100 pour gagner, dice, game" />
+    <meta name="Copyright" content="Ludovic Daub" />
+    <meta name="Author" content="Ludovic Daub" />
+    <meta name="Identifier-Url" content="urlàdéfinir" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>100 pour gagner</h1>
+
+    <button type="button" class="btn btn-outline-dark" id="new-game">
+      Nouvelle Partie
+    </button>
+    <!-- -------------PLAYER 1------------- -->
+    <div class="card player1">
+      <h2 id="player-name1">Joueur 1</h2>
+      <div class="img"></div>
+      <div class="card-body">
+        <p class="card-text">SCORE</p>
+        <div class="total-score" id="total-pointP1">0</div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">Tour en cour :</p>
+          <div class="current-score" id="pointP1">0</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="img-dice"></div>
+    <!-- -------------PLAYER 2------------- -->
+    <div class="card player2">
+      <h2 id="player-name2">Joueur 2</h2>
+      <div class="img"></div>
+      <div class="card-body">
+        <p class="card-text">SCORE</p>
+        <div class="total-score" id="total-pointP2">0</div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">Tour en cour :</p>
+          <div class="current-score" id="pointP2">0</div>
+        </div>
+      </div>
+    </div>
+    <!-- -------------DICE BUTTON------------- -->
+    <button type="button" class="btn btn-outline-dark" id="roll-dice">
+      Jeter le dé
+    </button>
+    <button type="button" class="btn btn-outline-dark" id="hold">
+      retenir le score
+    </button>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
