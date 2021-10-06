@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "lato";
+  src: url(./assets/font/Lato-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: "lato", serif;
+  color: rgb(242, 155, 14);
+  font-size: 1.7rem;
+  text-align: center;
+  background: url(./assets/img/bg.jpg) center/cover;
+  display: grid;
+  grid-template-columns: 30% 10% 20% 10% 30%;
+  grid-template-rows: 5% 15% 10% 10% 20% 10% 10% 10% 10%;
+  grid-template-areas:
+    "title title title title title"
+    "player-1 . . . player-2"
+    "player-1 . new-game . player-2"
+    "player-1 . . . player-2"
+    "player-1 . img-dice . player-2"
+    "player-1 . . . player-2"
+    "player-1 . roll-dice . player-2"
+    "player-1 . hold . player-2"
+    "player-1 . . . player-2";
+}
+h1 {
+  grid-area: title;
+  text-align: center;
+}
+#player-name1 {
+  border: red 5px solid;
+}
+#new-game {
+  grid-area: new-game;
+}
+#roll-dice {
+  grid-area: roll-dice;
+}
+#hold {
+  grid-area: hold;
+}
+#img-dice {
+  grid-area: img-dice;
+}
+.player1 {
+  grid-area: player-1;
+  display: grid;
+  grid-template-rows: 15% 40% 15% 30%;
+}
+.player1 .img {
+  background: url(./assets/img/panda.jpg) center/cover;
+}
+.player2 {
+  grid-area: player-2;
+  display: grid;
+  grid-template-rows: 15% 40% 15% 30%;
+}
+.player2 .img {
+  background: url(./assets/img/owl.jpg) center/cover;
+}
+.player1,
+.player2 {
+  padding: 15% 25% 5% 25%;
+}
+.btn {
+  border: 3px solid rgb(242, 155, 14);
+  background: transparent;
+  color: rgb(242, 155, 14);
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-family: "lato", sans-serif;
+  transition: 0.3s;
+}
+img {
+  height: 150px;
+}
+/* ******************RESPONSIVE********************** */
+
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 1rem;
+    grid-template-columns: 30% 10% 20% 10% 30%;
+    grid-template-rows: 10% 10% 10% 5% 25% 10% 10% 10% 10%;
+    grid-template-areas:
+      ". . title . ."
+      "player-1 . . . player-2"
+      "player-1 . new-game . player-2"
+      "player-1 . . . player-2"
+      "player-1 . img-dice . player-2"
+      "player-1 . . . player-2"
+      "player-1 . roll-dice . player-2"
+      "player-1 . hold . player-2"
+      "player-1 . . . player-2";
+  }
+  .btn {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  body {
+    grid-template-columns: 30% 5% 30% 5% 30%;
+    grid-template-rows: 10% 5% 15% 5% 25% 5% 15% 15% 5%;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  img {
+    height: 100px;
+  }
+  .btn {
+    font-size: 0.8rem;
+  }
+}
