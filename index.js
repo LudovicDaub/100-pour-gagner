@@ -41,3 +41,107 @@ function randomNumber() {
   return Math.floor(Math.random() * 6 + 1);
 }
 
+let randomDice;
+let player1Turn = true;
+let resultP1 = 0;
+let resultGlobalP1 = 0;
+let resultP2 = 0;
+let resultGlobalP2 = 0;
+ // *********************HOLD BUTTON + WIN CONDITION*****************
+hold.addEventListener("click", () => {
+  if (player1Turn) {
+    audioHold.play();
+    player2.style.border = "red 5px solid"
+    player1.style.border = "none"
+    resultGlobalP1 += resultP1;
+    totalScoreP1.textContent = resultGlobalP1;
+    resultP1 = 0;
+    currentScoreP1.textContent = "0";
+    if (resultGlobalP1 >= 100) {
+      audioVictory.play();
+      imgDice.innerHTML =
+        '<img style="height:150px; width:80px " src="./assets/img/trophy.jpg">' +
+        " Joueur 1 gagne !";
+        win();
+    } else {
+      player1Turn = false;
+    }
+  } else {
+    audioHold.play();
+    player1.style.border = "red 5px solid"
+    player2.style.border = "none"
+    resultGlobalP2 += resultP2;
+    totalScoreP2.textContent = resultGlobalP2;
+    resultP2 = 0;
+    currentScoreP2.textContent = "0";
+    if (resultGlobalP2 >= 100) {
+      audioVictory.play();
+      imgDice.innerHTML =
+      '<img style="height:150px; width:80px " src="./assets/img/trophy.jpg">' +
+        " Joueur 2 Gagne !";
+        win();
+    } else {
+      player1Turn = true;
+    }
+  }
+});
+ // *********************DICE ROLL*****************
+roll.addEventListener("click", () => {
+  audioDiceRoll.play();
+  if (player1Turn) {
+   randomDice = randomNumber();
+    if (randomDice == 1) {
+      audioFailed.play();
+      player2.style.border = "red 5px solid"
+      player1.style.border = "none"
+      diceImg(randomDice);
+      totalScoreP1.textContent = resultGlobalP1;
+      currentScoreP1.textContent = "0";
+      player1Turn = false;
+    } else {
+      audioDiceRoll.play();
+      setTimeout(() => {    
+         diceImg(randomDice);
+        resultP1 = resultP1 + randomDice;
+        currentScoreP1.textContent = resultP1;  
+      }, 500);      
+    }
+  } else {
+   randomDice = randomNumber();  
+    if (randomDice == 1) {
+      audioFailed.play();
+      player1.style.border = "red 5px solid"
+      player2.style.border = "none"
+      diceImg(randomDice);
+      totalScoreP2.textContent = resultGlobalP2;
+      currentScoreP2.textContent = 0;
+      resultP2 = 0;
+      player1Turn = true;
+    } else {
+      audioDiceRoll.play();
+      setTimeout(() => {
+      diceImg(randomDice);
+      resultP2 = resultP2 + randomDice;
+      currentScoreP2.textContent = resultP2;
+      }, 500);
+    }
+  }
+});
+ // *********************RESET BUTTON*****************
+newGame.addEventListener("click", () => {
+  win();
+});
+
+function win() {
+  resultGlobalP1 = 0;
+  resultGlobalP2 = 0;
+  resultP1 = 0;
+  resultP2 = 0;
+  currentScoreP2.textContent = "0";
+  currentScoreP1.textContent = "0";
+  totalScoreP1.textContent = "0";
+  totalScoreP2.textContent = "0";
+  player1Turn = true;
+  player1.style.border = "red 5px solid"
+  player2.style.border = "none"
+}
