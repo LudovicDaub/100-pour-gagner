@@ -32,10 +32,11 @@ function diceImg(randomDice) {
    }
  }
   // *********************DICE SOUND*****************
-  let audioFailed = new Audio("assets/audio/fail.mp3");
-  let audioDiceRoll = new Audio("assets/audio/dice.wav");
-  let audioVictory = new Audio("assets/audio/victory.mp3");
-  let audioHold = new Audio("assets/audio/hold.mp3");
+  const audioFailed = new Audio("assets/audio/fail.mp3");
+  const audioDiceRoll = new Audio("assets/audio/dice.wav");
+  const audioVictory = new Audio("assets/audio/victory.mp3");
+  const audioHold = new Audio("assets/audio/hold.mp3");
+  const audio = [audioFailed, audioDiceRoll, audioVictory, audioHold];
  // *********************RAMDOM-NUMBER*****************
 function randomNumber() {
   return Math.floor(Math.random() * 6 + 1);
@@ -152,3 +153,24 @@ function win() {
  window.alert("Règles du jeu : chaque joueur lance le dé. Le score de chaque tour est cumulé jusqu'à ce que le joueur clique sur retenir le score ou fasse 1, ce qui met son tour à zéro et la main passe à l'autre joueur. Le premier à 100 remporte la partie. Bonne chance !");
 }
 rules();
+// *********************MUTED*****************
+let muted = document.querySelector("#muted")
+let mutedText = document.querySelector("#mutedText")
+let mutedLogo =document.querySelector("#mutedLogo")
+
+muted.addEventListener('click', () => {
+  if(mutedText.innerText === 'Désactiver le son :'){
+      mutedText.innerText = 'Activer le son :';
+      mutedLogo.innerHTML = '&#128266;';
+      for(let track of audio){
+        track.muted = true;
+      }
+
+  } else if(mutedText.innerText === 'Activer le son :') {
+      mutedText.innerText = 'Désactiver le son :';
+      mutedLogo.innerHTML = '&#128263;';
+      for(let track of audio){
+        track.muted = false;
+      }
+  }
+});    

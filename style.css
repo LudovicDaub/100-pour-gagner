@@ -27,11 +27,10 @@ body {
     "player-1 . . . player-2"
     "player-1 . roll-dice . player-2"
     "player-1 . hold . player-2"
-    "player-1 . . . player-2";
+    "player-1 . muted . player-2";
 }
-h1 {
-  grid-area: title;
-  text-align: center;
+#muted {
+  grid-area: muted;
 }
 #player-name1 {
   border: red 5px solid;
@@ -47,6 +46,10 @@ h1 {
 }
 #img-dice {
   grid-area: img-dice;
+}
+h1 {
+  grid-area: title;
+  text-align: center;
 }
 .player1 {
   grid-area: player-1;
@@ -99,7 +102,7 @@ img {
       "player-1 . . . player-2"
       "player-1 . roll-dice . player-2"
       "player-1 . hold . player-2"
-      "player-1 . . . player-2";
+      "player-1 . muted . player-2";
   }
   .btn {
     font-size: 1rem;
