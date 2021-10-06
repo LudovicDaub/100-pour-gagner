@@ -77,7 +77,7 @@ hold.addEventListener("click", () => {
     if (resultGlobalP2 >= 100) {
       audioVictory.play();
       imgDice.innerHTML =
-      '<img style="height:150px; width:80px " src="./assets/img/trophy.jpg">' +
+      '<img style="height:150px; width:100px " src="./assets/img/trophy.jpg">' +
         " Joueur 2 Gagne !";
         win();
     } else {
@@ -97,6 +97,7 @@ roll.addEventListener("click", () => {
       diceImg(randomDice);
       totalScoreP1.textContent = resultGlobalP1;
       currentScoreP1.textContent = "0";
+      resultP1 = 0;
       player1Turn = false;
     } else {
       audioDiceRoll.play();
@@ -104,7 +105,7 @@ roll.addEventListener("click", () => {
          diceImg(randomDice);
         resultP1 = resultP1 + randomDice;
         currentScoreP1.textContent = resultP1;  
-      }, 500);      
+      }, 500);
     }
   } else {
    randomDice = randomNumber();  
@@ -129,11 +130,11 @@ roll.addEventListener("click", () => {
 });
  // *********************RESET BUTTON*****************
 newGame.addEventListener("click", () => {
+  rules();
   win();
 });
 
 function win() {
-    rules();
   resultGlobalP1 = 0;
   resultGlobalP2 = 0;
   resultP1 = 0;
