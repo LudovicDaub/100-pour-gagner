@@ -17,9 +17,9 @@ body {
   background: url(./assets/img/bg.jpg) center/cover;
   display: grid;
   grid-template-columns: 30% 10% 20% 10% 30%;
-  grid-template-rows: 5% 15% 10% 10% 20% 10% 10% 10% 10%;
+  grid-template-rows: 10% 10% 10% 10% 20% 10% 10% 10% 10%;
   grid-template-areas:
-    "title title title title title"
+    ". title title title muted"
     "player-1 . . . player-2"
     "player-1 . new-game . player-2"
     "player-1 . . . player-2"
@@ -27,7 +27,7 @@ body {
     "player-1 . . . player-2"
     "player-1 . roll-dice . player-2"
     "player-1 . hold . player-2"
-    "player-1 . muted . player-2";
+    "player-1 . . . player-2";
 }
 #muted {
   grid-area: muted;
@@ -94,7 +94,7 @@ img {
     grid-template-columns: 30% 10% 20% 10% 30%;
     grid-template-rows: 10% 10% 10% 5% 25% 10% 10% 10% 10%;
     grid-template-areas:
-      ". . title . ."
+      ". . title . muted"
       "player-1 . . . player-2"
       "player-1 . new-game . player-2"
       "player-1 . . . player-2"
@@ -102,7 +102,7 @@ img {
       "player-1 . . . player-2"
       "player-1 . roll-dice . player-2"
       "player-1 . hold . player-2"
-      "player-1 . muted . player-2";
+      "player-1 . . . player-2";
   }
   .btn {
     font-size: 1rem;
@@ -121,5 +121,9 @@ img {
   }
   .btn {
     font-size: 0.8rem;
+  }
+  .player1 .img,
+  .player2 .img {
+    background: none;
   }
 }
